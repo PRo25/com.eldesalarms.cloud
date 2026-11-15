@@ -181,9 +181,9 @@
           }
         },
         {
-          "id": "home_armed",
+          "id": "stay_armed",
           "title": {
-            "en": "Home Armed"
+            "en": "Stay Armed"
           }
         },
         {
@@ -280,7 +280,7 @@
         "en": "Stay Armed"
       },
       "insightsTitleFalse": {
-        "en": "Disarmed"
+        "en": "Stay Disarmed"
       }
     },
     "eldes_test_state": {

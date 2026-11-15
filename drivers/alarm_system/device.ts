@@ -315,7 +315,7 @@ export default class AlarmSystemDevice extends Homey.Device {
   private async updateReportedStatusCapabilities(status: EldesAlarmStatus): Promise<void> {
     if (status === 'armed') {
       await this.setCapabilityValue(REPORTED_STATUS_CAPABILITIES.armed_disarmed, true);
-    } else if (status === 'home_armed') {
+    } else if (status === 'stay_armed') {
       await this.setCapabilityValue(REPORTED_STATUS_CAPABILITIES.stay_armed_disarmed, true);
     } else {
       await Promise.all([

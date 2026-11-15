@@ -197,7 +197,7 @@ export type EldesPartitionStatus = {
   partitions: EldesPartition[];
 };
 
-export type EldesAlarmStatus = 'armed' | 'home_armed' | 'disarmed';
+export type EldesAlarmStatus = 'armed' | 'stay_armed' | 'disarmed';
 
 export type EldesAlarmMode = 'arm' | 'armstay' | 'disarm';
 
@@ -241,7 +241,7 @@ export function mapEldesAlarmState(state: string | undefined): EldesAlarmStatus 
     case 'ARMED':
       return 'armed';
     case 'ARMSTAY':
-      return 'home_armed';
+      return 'stay_armed';
     default:
       return undefined;
   }
