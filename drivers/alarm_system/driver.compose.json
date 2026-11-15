@@ -19,7 +19,9 @@
     "eldes_homey_stay_arm_request",
     "eldes_homey_disarm_request",
     "eldes_reported_armed_disarmed",
-    "eldes_reported_stay_armed_disarmed"
+    "eldes_reported_stay_armed_disarmed",
+    "eldes_active_faults",
+    "eldes_unaccepted_partition_alarms"
   ],
   "pair": [
     {

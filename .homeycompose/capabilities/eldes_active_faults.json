@@ -1,0 +1,9 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Active faults"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}

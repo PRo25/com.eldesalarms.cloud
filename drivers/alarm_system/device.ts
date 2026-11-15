@@ -22,6 +22,8 @@ const PIN_SALT_KEY = 'eldesPinSalt';
 const PIN_IV_KEY = 'eldesPinIv';
 const PIN_AUTH_TAG_KEY = 'eldesPinAuthTag';
 const STATUS_CAPABILITY = 'eldes_alarm_status';
+const ACTIVE_FAULTS_CAPABILITY = 'eldes_active_faults';
+const UNACCEPTED_PARTITION_ALARMS_CAPABILITY = 'eldes_unaccepted_partition_alarms';
 const COMMAND_CAPABILITIES: Record<EldesAlarmMode, string> = {
   arm: 'eldes_alarm_arm',
   armstay: 'eldes_alarm_stay_arm',
@@ -149,6 +151,8 @@ export default class AlarmSystemDevice extends Homey.Device {
     for (const capability of [
       ...Object.values(COMMAND_AUDIT_CAPABILITIES),
       ...Object.values(REPORTED_STATUS_CAPABILITIES),
+      ACTIVE_FAULTS_CAPABILITY,
+      UNACCEPTED_PARTITION_ALARMS_CAPABILITY,
     ]) {
       if (!this.hasCapability(capability)) {
         await this.addCapability(capability);
@@ -273,7 +277,8 @@ export default class AlarmSystemDevice extends Homey.Device {
       }
 
       const deviceData = parseAlarmDeviceData(this.getData());
-      const partitions = await this.apiClient.getPartitionStatuses(deviceData.imei, this.pinCode);
+      const partitionStatus = await this.apiClient.getPartitionStatuses(deviceData.imei, this.pinCode);
+      const { partitions } = partitionStatus;
       const partition = partitions.find(
         (item) => item.internalId === deviceData.partitionIndex,
       );
@@ -288,6 +293,15 @@ export default class AlarmSystemDevice extends Homey.Device {
 
       await this.setCapabilityValue(STATUS_CAPABILITY, status);
       await this.updateReportedStatusCapabilities(status);
+      if (typeof partitionStatus.hasActiveFaults === 'boolean') {
+        await this.setCapabilityValue(ACTIVE_FAULTS_CAPABILITY, partitionStatus.hasActiveFaults);
+      }
+      if (typeof partition.hasUnacceptedPartitionAlarms === 'boolean') {
+        await this.setCapabilityValue(
+          UNACCEPTED_PARTITION_ALARMS_CAPABILITY,
+          partition.hasUnacceptedPartitionAlarms,
+        );
+      }
       await this.setAvailable();
     } catch (error) {
       const message = error instanceof Error ? error.message : 'An unexpected ELDES API error occurred.';

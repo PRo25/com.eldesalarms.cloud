@@ -228,7 +228,7 @@ export default class AlarmSystemDriver extends Homey.Driver {
             }
           },
         );
-        const partitions = await client.getPartitionStatuses(deviceData.imei, credentials.pinCode);
+        const { partitions } = await client.getPartitionStatuses(deviceData.imei, credentials.pinCode);
         const partitionExists = partitions.some(
           (partition) => partition.internalId === deviceData.partitionIndex,
         );

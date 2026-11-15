@@ -189,6 +189,12 @@ export type EldesPartition = {
   armed?: boolean;
   armStay?: boolean;
   state?: string;
+  hasUnacceptedPartitionAlarms?: boolean;
+};
+
+export type EldesPartitionStatus = {
+  hasActiveFaults?: boolean;
+  partitions: EldesPartition[];
 };
 
 export type EldesAlarmStatus = 'armed' | 'home_armed' | 'disarmed';
@@ -222,6 +228,9 @@ function parsePartition(value: unknown): EldesPartition {
     armed: typeof value.armed === 'boolean' ? value.armed : undefined,
     armStay: typeof value.armStay === 'boolean' ? value.armStay : undefined,
     state: typeof value.state === 'string' ? value.state : undefined,
+    hasUnacceptedPartitionAlarms: typeof value.hasUnacceptedPartitionAlarms === 'boolean'
+      ? value.hasUnacceptedPartitionAlarms
+      : undefined,
   };
 }
 
@@ -320,7 +329,7 @@ export default class EldesCloudApi {
     });
   }
 
-  async getPartitionStatuses(imei: string, pinCode: string): Promise<EldesPartition[]> {
+  async getPartitionStatuses(imei: string, pinCode: string): Promise<EldesPartitionStatus> {
     const response = await this.request(
       `/device/partition/list?imei=${encodeURIComponent(imei)}`,
       'POST',
@@ -331,7 +340,10 @@ export default class EldesCloudApi {
       throw new Error('ELDES returned an invalid partition status list.');
     }
 
-    return result.partitions.map(parsePartition);
+    return {
+      hasActiveFaults: typeof result.hasActiveFaults === 'boolean' ? result.hasActiveFaults : undefined,
+      partitions: result.partitions.map(parsePartition),
+    };
   }
 
   async setAlarm(
