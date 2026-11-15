@@ -1,4 +1,10 @@
 {
+  "0.1.2": {
+    "en": "Fixed device repair view loading."
+  },
+  "0.1.1": {
+    "en": "Improved alarm controls, status history, and device repair."
+  },
   "0.1.0": {
     "en": "First version!"
   }

@@ -43,7 +43,7 @@ const COMMAND_AUDIT_CAPABILITIES: Record<EldesAlarmMode, string> = {
   disarm: 'eldes_homey_disarm_request',
 };
 const POLL_INTERVAL_SETTING = 'poll_interval_seconds';
-const DEFAULT_POLL_INTERVAL_SECONDS = 15;
+const DEFAULT_POLL_INTERVAL_SECONDS = 30;
 const MIN_POLL_INTERVAL_SECONDS = 5;
 const MAX_POLL_INTERVAL_SECONDS = 300;
 

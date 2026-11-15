@@ -129,9 +129,9 @@ async function logResponse(
   }
 
   logger?.(
-    `[ELDES API DEBUG] Response ${method} ${redactUrl(url)} status=${response.status} `
-    + `durationMs=${Date.now() - startedAt} headers=${formatForLog(getRedactedResponseHeaders(response))} `
-    + `body=${formatForLog(safeBody)}`,
+    `\n[ELDES API DEBUG] \nResponse status=${response.status} ${method} ${redactUrl(url)} `
+    + `\ndurationMs=${Date.now() - startedAt} headers=${formatForLog(getRedactedResponseHeaders(response))} `
+    + `\nbody=${formatForLog(safeBody)}`,
   );
 
   return formatForLog(safeBody);
@@ -162,9 +162,9 @@ async function sendRequest(
   const safeUrl = redactUrl(url);
   const startedAt = Date.now();
   logger?.(
-    `[ELDES API DEBUG] Request ${method} ${safeUrl} `
-    + `headers=${formatForLog(redactHeaders(headers))} `
-    + `body=${formatForLog(redactForLog(parsedBody, knownSecrets))}`,
+    `\n[ELDES API DEBUG] \nRequest ${method} ${safeUrl} `
+    + `\nheaders=${formatForLog(redactHeaders(headers))} `
+    + `\nbody=${formatForLog(redactForLog(parsedBody, knownSecrets))}`,
   );
 
   try {
@@ -173,8 +173,8 @@ async function sendRequest(
     return response;
   } catch (error) {
     logger?.(
-      `[ELDES API DEBUG] Request failed ${method} ${safeUrl} `
-      + `durationMs=${Date.now() - startedAt} error=${redactString(
+      `\n[ELDES API DEBUG] \nRequest failed ${method} ${safeUrl} `
+      + `\ndurationMs=${Date.now() - startedAt} \nerror=${redactString(
         error instanceof Error ? `${error.name}: ${error.message}` : String(error),
         knownSecrets,
       )}`,

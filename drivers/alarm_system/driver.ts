@@ -210,11 +210,13 @@ export default class AlarmSystemDriver extends Homey.Driver {
     }
 
     const deviceData = parseAlarmDeviceData(device);
+
     const savedHostDeviceId = device.getStoreValue(HOST_DEVICE_ID_KEY);
     const hostDeviceId = typeof savedHostDeviceId === 'string' ? savedHostDeviceId : randomUUID();
 
     session.setHandler('login', async (data: unknown): Promise<boolean> => {
-      const credentials = parseLoginData(data);
+      const credentials: LoginData = parseLoginData(data);
+
       try {
         const client = await EldesCloudApi.login(
           credentials.username,
@@ -253,8 +255,10 @@ export default class AlarmSystemDriver extends Homey.Driver {
       } finally {
         credentials.password = '';
         credentials.pinCode = '';
+        credentials.encryptionPassphrase = '';
       }
     });
+    await session.showView('credentials');
   }
 
 }

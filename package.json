@@ -1,6 +1,6 @@
 {
   "name": "com.eldesalarms.cloud",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "scripts": {
     "build": "tsc",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore ."

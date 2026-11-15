@@ -3,7 +3,7 @@
   "title": {
     "en": "Stay Arm"
   },
-  "getable": false,
+  "getable": true,
   "setable": true,
   "uiComponent": "button"
 }

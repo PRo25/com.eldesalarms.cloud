@@ -1,15 +1,16 @@
 {
   "type": "boolean",
   "title": {
-    "en": "Homey Arm request"
+    "en": "Arm request"
   },
   "getable": true,
   "setable": false,
+  "uiComponent": null,
   "insights": true,
   "insightsTitleTrue": {
-    "en": "Homey sent Arm command"
+    "en": "Arm requested"
   },
   "insightsTitleFalse": {
-    "en": "Homey sent Arm command"
+    "en": "Arm requested"
   }
 }

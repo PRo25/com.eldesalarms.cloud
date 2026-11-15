@@ -1,15 +1,16 @@
 {
   "type": "boolean",
   "title": {
-    "en": "Homey Disarm request"
+    "en": "Disarm request"
   },
   "getable": true,
   "setable": false,
+  "uiComponent": null,
   "insights": true,
   "insightsTitleTrue": {
-    "en": "Homey sent Disarm command"
+    "en": "Disarm requested"
   },
   "insightsTitleFalse": {
-    "en": "Homey sent Disarm command"
+    "en": "Disarm requested"
   }
 }

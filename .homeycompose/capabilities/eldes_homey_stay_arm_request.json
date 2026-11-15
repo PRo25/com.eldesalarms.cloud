@@ -1,15 +1,16 @@
 {
   "type": "boolean",
   "title": {
-    "en": "Homey Stay Arm request"
+    "en": "Stay Arm request"
   },
   "getable": true,
   "setable": false,
+  "uiComponent": null,
   "insights": true,
   "insightsTitleTrue": {
-    "en": "Homey sent Stay Arm command"
+    "en": "Stay Arm requested"
   },
   "insightsTitleFalse": {
-    "en": "Homey sent Stay Arm command"
+    "en": "Stay Arm requested"
   }
 }
