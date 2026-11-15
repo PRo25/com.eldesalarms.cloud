@@ -1,0 +1,15 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Homey Arm request"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Homey sent Arm command"
+  },
+  "insightsTitleFalse": {
+    "en": "Homey sent Arm command"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "ELDES Armed / Disarmed history"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "ELDES reports Armed"
+  },
+  "insightsTitleFalse": {
+    "en": "ELDES reports Disarmed"
+  }
+}

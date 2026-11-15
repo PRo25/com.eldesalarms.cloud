@@ -1,0 +1,15 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Homey Disarm request"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Homey sent Disarm command"
+  },
+  "insightsTitleFalse": {
+    "en": "Homey sent Disarm command"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": {
+    "en": "ELDES Alarm System"
+  },
+  "class": "other",
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "capabilities": [
+    "eldes_alarm_status",
+    "eldes_alarm_arm",
+    "eldes_alarm_stay_arm",
+    "eldes_alarm_disarm",
+    "eldes_homey_arm_request",
+    "eldes_homey_stay_arm_request",
+    "eldes_homey_disarm_request",
+    "eldes_reported_armed_disarmed",
+    "eldes_reported_stay_armed_disarmed"
+  ],
+  "pair": [
+    {
+      "id": "credentials"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "credentials"
+    }
+  ]
+}

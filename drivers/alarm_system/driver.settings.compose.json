@@ -1,0 +1,30 @@
+[
+  {
+    "id": "api_debug_logging",
+    "type": "checkbox",
+    "label": {
+      "en": "Log ELDES API requests and responses"
+    },
+    "value": true,
+    "hint": {
+      "en": "Logs request and response data for troubleshooting. Passwords, PINs, passphrases, and tokens are redacted."
+    }
+  },
+  {
+    "id": "poll_interval_seconds",
+    "type": "number",
+    "label": {
+      "en": "Status polling interval"
+    },
+    "value": 15,
+    "min": 5,
+    "max": 300,
+    "step": 1,
+    "units": {
+      "en": "seconds"
+    },
+    "hint": {
+      "en": "How often to check the ELDES Cloud for arming status changes."
+    }
+  }
+]

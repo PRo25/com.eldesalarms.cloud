@@ -1,0 +1,29 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Arming status"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "values": [
+    {
+      "id": "armed",
+      "title": {
+        "en": "Armed"
+      }
+    },
+    {
+      "id": "home_armed",
+      "title": {
+        "en": "Home Armed"
+      }
+    },
+    {
+      "id": "disarmed",
+      "title": {
+        "en": "Disarmed"
+      }
+    }
+  ]
+}
